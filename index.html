@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DzairTravel — Guide touristique de l'Algérie</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/index.css">
+</head>
+
+<body>
+
+    <!-- navbar -->
+    <header>
+        <nav id="navbar" role="navigation" aria-label="Navigation principale">
+            <div class="nav-logo">Dzair<span>Travel</span></div>
+
+            <ul class="nav-liens">
+                <li><a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
+                <li><a href="content/destinations.html" data-fr="Destinations" data-en="Destinations">Destinations</a>
+                </li>
+                <li><a href="content/connexion.html" data-fr="Mon compte" data-en="My Account">Mon compte</a></li>
+            </ul>
+
+            <div class="nav-controles">
+                <div id="zone-session"></div>
+                <button class="btn-icone" id="btn-langue" title="Changer la langue"
+                    aria-label="Changer la langue">EN</button>
+                <button class="btn-icone" id="btn-theme" title="Mode sombre" aria-label="Basculer le thème">🌙</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- bouton flottant -->
+    <button id="btn-sidebar" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+
+    <!-- overlay -->
+    <div id="sidebar-overlay" aria-hidden="true"></div>
+
+    <!-- sidebar -->
+    <nav id="sidebar" role="navigation" aria-label="Menu latéral">
+        <div class="sidebar-header">
+            <span class="sidebar-logo">Dzair<span>Travel</span></span>
+            <button id="btn-fermer-sidebar" aria-label="Fermer le menu">✕</button>
+        </div>
+
+        <ul class="sidebar-nav">
+            <li>
+                <a href="index.html">
+                    <span class="icone-lien">🏠</span>
+                    <span data-fr="Accueil" data-en="Home">Accueil</span>
+                </a>
+            </li>
+            <li>
+                <a href="content/destinations.html">
+                    <span class="icone-lien">🗺️</span>
+                    <span data-fr="Destinations" data-en="Destinations">Destinations</span>
+                </a>
+            </li>
+            <li>
+                <a href="content/connexion.html">
+                    <span class="icone-lien">👤</span>
+                    <span data-fr="Connexion / Inscription" data-en="Sign In / Sign Up">Connexion / Inscription</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <div id="zone-session-sidebar"></div>
+            <div class="sidebar-controles">
+                <button class="btn-icone" id="btn-langue-sb" data-fr="EN" data-en="FR">EN</button>
+                <button class="btn-icone" id="btn-theme-sb">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- hero -->
+    <section class="hero" aria-label="Image de présentation">
+        <img class="hero-img" src="images/hoggar.png" alt="Paysage algérien" aria-hidden="true"
+            onerror="this.style.display='none'">
+        <div class="hero-contenu">
+            <h1 data-fr="Découvrez l'Algérie" data-en="Discover Algeria">Découvrez l'Algérie</h1>
+            <p data-fr="Du Sahara doré aux côtes méditerranéennes, explorez le plus grand pays d'Afrique à travers ses trésors cachés."
+                data-en="From the golden Sahara to the Mediterranean coast, explore Africa's largest country through its hidden treasures.">
+                Du Sahara doré aux côtes méditerranéennes, explorez le plus grand pays d'Afrique à travers ses trésors
+                cachés.
+            </p>
+            <div class="hero-btn-groupe">
+                <a href="content/destinations.html" class="btn-primaire" data-fr="Explorer les destinations"
+                    data-en="Explore Destinations">
+                    Explorer les destinations
+                </a>
+                <a href="content/inscription.html" class="btn-secondaire" data-fr="Créer un compte"
+                    data-en="Create Account">
+                    Créer un compte
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- main -->
+    <main>
+        <!-- 9 catégories -->
+        <section class="section" aria-labelledby="titre-cats">
+            <div class="conteneur">
+                <h2 class="titre-section" id="titre-cats" data-fr="9 façons d'explorer l'Algérie"
+                    data-en="9 ways to explore Algeria">
+                    9 façons d'explorer l'Algérie
+                </h2>
+                <p class="sous-titre" data-fr="Choisissez votre type d'aventure"
+                    data-en="Choose your type of adventure">
+                    Choisissez votre type d'aventure
+                </p>
+                <div class="grille-cats" id="grille-cats" role="list"></div>
+            </div>
+        </section>
+
+        <!-- destinations vedettes -->
+        <section class="section" aria-labelledby="titre-vedette">
+            <div class="conteneur">
+                <h2 class="titre-section" id="titre-vedette" data-fr="Coups de cœur" data-en="Top Picks">
+                    Coups de cœur
+                </h2>
+                <p class="sous-titre" data-fr="Nos destinations préférées, à ne pas manquer"
+                    data-en="Our favourite spots you should not miss">
+                    Nos destinations préférées, à ne pas manquer
+                </p>
+                <div class="grille-dest" id="grille-vedette" role="list"></div>
+            </div>
+        </section>
+
+        <!-- à propos -->
+        <section class="section" aria-labelledby="titre-apropos">
+            <div class="conteneur">
+                <h2 class="titre-section" id="titre-apropos" data-fr="Pourquoi l'Algérie ?" data-en="Why Algeria?">
+                    Pourquoi l'Algérie ?
+                </h2>
+                <p class="sous-titre" data-fr="Le pays aux mille visages" data-en="A land of a thousand faces">
+                    Le pays aux mille visages
+                </p>
+                <div class="section-apropos-grille">
+                    <div class="apropos-carte">
+                        <div class="apropos-icone">🏜️</div>
+                        <h3 data-fr="Le plus grand pays d'Afrique" data-en="Africa's Largest Country">
+                            Le plus grand pays d'Afrique
+                        </h3>
+                        <p data-fr="2,38 millions de km², du Méditerranée au Sahara"
+                            data-en="2.38 million km², from the Mediterranean to the Sahara">
+                            2,38 millions de km², du Méditerranée au Sahara
+                        </p>
+                    </div>
+                    <div class="apropos-carte">
+                        <div class="apropos-icone">🏛️</div>
+                        <h3 data-fr="7 sites UNESCO" data-en="7 UNESCO Sites">
+                            7 sites UNESCO
+                        </h3>
+                        <p data-fr="Un patrimoine romain, berbère, ottoman et islamique exceptionnel"
+                            data-en="Exceptional Roman, Berber, Ottoman and Islamic heritage">
+                            Un patrimoine romain, berbère, ottoman et islamique exceptionnel
+                        </p>
+                    </div>
+                    <div class="apropos-carte">
+                        <div class="apropos-icone">🌊</div>
+                        <h3 data-fr="1 200 km de côtes" data-en="1,200 km of Coastline">
+                            1 200 km de côtes
+                        </h3>
+                        <p data-fr="Des plages méditerranéennes parmi les plus belles du monde"
+                            data-en="Some of the world's most beautiful Mediterranean beaches">
+                            Des plages méditerranéennes parmi les plus belles du monde
+                        </p>
+                    </div>
+                    <div class="apropos-carte">
+                        <div class="apropos-icone">🏔️</div>
+                        <h3 data-fr="Des paysages variés" data-en="Diverse Landscapes">
+                            Des paysages variés
+                        </h3>
+                        <p data-fr="Désert, montagnes, forêts, oasis et côtes dans un seul pays"
+                            data-en="Desert, mountains, forests, oases and coasts all in one country">
+                            Désert, montagnes, forêts, oasis et côtes dans un seul pays
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- footer -->
+    <footer>
+        <div class="footer-grille">
+            <div class="footer-col">
+                <h4 data-fr="DzairTravel" data-en="DzairTravel">DzairTravel</h4>
+                <p data-fr="Un guide touristique étudiant sur les merveilles de l'Algérie, réalisé avec passion dans le cadre du module Développement d'Applications Web."
+                    data-en="A student travel guide to the wonders of Algeria, created with passion as part of the Web Application Development module.">
+                    Un guide touristique étudiant sur les merveilles de l'Algérie, réalisé avec passion dans le cadre du
+                    module Développement d'Applications Web.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4 data-fr="Navigation" data-en="Navigation">Navigation</h4>
+                <nav>
+                    <a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+                    <a href="content/destinations.html" data-fr="Destinations" data-en="Destinations">Destinations</a>
+                    <a href="content/connexion.html" data-fr="Connexion" data-en="Sign In">Connexion</a>
+                    <a href="content/inscription.html" data-fr="Inscription" data-en="Sign Up">Inscription</a>
+                </nav>
+            </div>
+            <div class="footer-col">
+                <h4 data-fr="Contact" data-en="Contact">Contact</h4>
+                <p>📍 Université Mouloud MAMMERI, Tizi Ouzou, Algérie</p>
+                <p>📧 <a href="mailto:contact@dzairtravel.dz">contact@dzairtravel.dz</a></p>
+                <p>📞 +213 26 XX XX XX</p>
+                <p>
+                    <a href="#" aria-label="Facebook">Facebook</a>
+                    <a href="#" aria-label="Instagram">Instagram</a>
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4 data-fr="Avis des visiteurs" data-en="Visitor Reviews">Avis des visiteurs</h4>
+                <ul class="footer-avis" role="list">
+                    <li>
+                        <div class="auteur-avis">Yahi Houda — Alger</div>
+                        <div class="etoiles-avis">★★★★★</div>
+                        <span data-fr="Magnifique site, j'ai découvert des endroits que je ne connaissais pas !"
+                            data-en="Beautiful site, I discovered places I never knew about!">
+                            Magnifique site, j'ai découvert des endroits que je ne connaissais pas !
+                        </span>
+                    </li>
+                    <li>
+                        <div class="auteur-avis">Grim Dounia — Béjaïa</div>
+                        <div class="etoiles-avis">★★★★★</div>
+                        <span data-fr="Très bien organisé, bravo aux créateurs !"
+                            data-en="Very well organised, well done to the creators!">
+                            Très bien organisé, bravo aux créateurs !
+                        </span>
+                    </li>
+                    <li>
+                        <div class="auteur-avis">Akhrouf Yanis — Constantine</div>
+                        <div class="etoiles-avis">★★★★☆</div>
+                        <span data-fr="Le site m'a aidé à planifier mon voyage dans le Sud."
+                            data-en="The site helped me plan my trip to the South.">
+                            Le site m'a aidé à planifier mon voyage dans le Sud.
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bas">
+            <p data-fr="© 2025/2026 DzairTravel — Université Mouloud Mammeri Tizi-Ouzou"
+                data-en="© 2025/2026 DzairTravel —  University Mouloud Mammeri of Tizi-Ouzou">
+                © 2025/2026 DzairTravel — Université Mouloud Mammeri Tizi-Ouzou
+            </p>
+        </div>
+    </footer>
+
+    <script src="javascript/donnees.js"></script>
+    <script src="javascript/commun.js"></script>
+    <script src="javascript/accueil.js"></script>
+
+</body>
+
+</html>

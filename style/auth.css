@@ -1,0 +1,53 @@
+/* styles spécifiques à la page connexion / inscription */
+
+/* titre en haut du formulaire */
+.formulaire-wrapper h1 {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1.4rem;
+  color: var(--texte);
+}
+
+/* conteneur d'un champ mot de passe avec bouton œil */
+.champ-mdp {
+  position: relative;
+}
+
+/* bouton pour afficher / masquer le mot de passe */
+.btn-oeil {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--texte-doux);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* bouton qui ressemble à un lien (bascule entre onglets) */
+.btn-lien {
+  background: none;
+  border: none;
+  color: var(--primaire);
+  cursor: pointer;
+  font-size: 0.85rem;
+  text-decoration: underline;
+  font-family: inherit;
+}
+
+/* nom + prénom côte à côte */
+.grille-noms {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 480px) {
+  .grille-noms {
+    grid-template-columns: 1fr;
+  }
+}

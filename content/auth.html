@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DzairTravel — Connexion / Inscription</title>
+  <link rel="stylesheet" href="../style/style.css">
+  <link rel="stylesheet" href="../style/auth.css">
+</head>
+<body>
+
+  <!-- navbar -->
+  <header>
+    <nav id="navbar" role="navigation" aria-label="Navigation principale">
+      <div class="nav-logo">
+        <a href="../index.html" class="nav-logo-lien">Dzair<span>Travel</span></a>
+      </div>
+
+      <ul class="nav-liens">
+        <li><a href="../index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
+        <li><a href="destinations.html" data-fr="Destinations" data-en="Destinations">Destinations</a></li>
+      </ul>
+
+      <div class="nav-controles">
+        <div id="zone-session"></div>
+        <button class="btn-icone" id="btn-langue" title="Changer la langue">EN</button>
+        <button class="btn-icone" id="btn-theme" title="Mode sombre">🌙</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- bouton flottant -->
+  <button id="btn-sidebar" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+  <div id="sidebar-overlay" aria-hidden="true"></div>
+
+  <!-- sidebar -->
+  <nav id="sidebar" role="navigation" aria-label="Menu latéral">
+    <div class="sidebar-header">
+      <span class="sidebar-logo">Dzair<span>Travel</span></span>
+      <button id="btn-fermer-sidebar" aria-label="Fermer">✕</button>
+    </div>
+    <ul class="sidebar-nav">
+      <li><a href="../index.html"><span class="icone-lien">🏠</span><span data-fr="Accueil" data-en="Home">Accueil</span></a></li>
+      <li><a href="destinations.html"><span class="icone-lien">🗺️</span><span data-fr="Destinations" data-en="Destinations">Destinations</span></a></li>
+      <li><a href="auth.html"><span class="icone-lien">👤</span><span data-fr="Connexion" data-en="Sign In">Connexion</span></a></li>
+    </ul>
+    <div class="sidebar-footer">
+      <div id="zone-session-sidebar"></div>
+      <div class="sidebar-controles">
+        <button class="btn-icone" id="btn-langue-sb">EN</button>
+        <button class="btn-icone" id="btn-theme-sb">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- contenu principal -->
+  <main>
+    <div class="conteneur">
+
+      <div class="formulaire-wrapper">
+
+        <!-- titre -->
+        <h1 data-fr="Mon compte" data-en="My Account">Mon compte</h1>
+
+        <!-- onglets connexion / inscription -->
+        <div class="onglets" role="tablist">
+          <button class="onglet actif" id="onglet-connexion"
+                  role="tab" aria-selected="true" aria-controls="panneau-connexion"
+                  data-fr="Connexion" data-en="Sign In">Connexion</button>
+          <button class="onglet" id="onglet-inscription"
+                  role="tab" aria-selected="false" aria-controls="panneau-inscription"
+                  data-fr="Inscription" data-en="Sign Up">Inscription</button>
+        </div>
+
+        <!-- message global -->
+        <div class="message" id="msg-global" role="alert" aria-live="polite"></div>
+
+        <!-- formulaire connexion -->
+        <div class="panneau-form actif" id="panneau-connexion"
+             role="tabpanel" aria-labelledby="onglet-connexion">
+          <form id="form-connexion" novalidate>
+
+            <div class="champ">
+              <label for="email-co" data-fr="Adresse e-mail" data-en="Email address">Adresse e-mail</label>
+              <input type="email" id="email-co" name="email"
+                     autocomplete="email"
+                     data-fr="votre@email.com" data-en="your@email.com"
+                     placeholder="votre@email.com" required>
+              <span class="erreur-champ" id="err-email-co"></span>
+            </div>
+
+            <div class="champ">
+              <label for="mdp-co" data-fr="Mot de passe" data-en="Password">Mot de passe</label>
+              <div class="champ-mdp">
+                <input type="password" id="mdp-co" name="motDePasse"
+                       autocomplete="current-password"
+                       data-fr="Votre mot de passe" data-en="Your password"
+                       placeholder="Votre mot de passe" required>
+                <button type="button" class="btn-oeil" id="btn-oeil-co"
+                        aria-label="Afficher/masquer le mot de passe">👁</button>
+              </div>
+              <span class="erreur-champ" id="err-mdp-co"></span>
+            </div>
+
+            <button type="submit" class="btn-form"
+                    data-fr="Se connecter" data-en="Sign In">Se connecter</button>
+          </form>
+
+          <p class="lien-bas">
+            <span data-fr="Pas encore de compte ?" data-en="No account yet?">Pas encore de compte ?</span>
+            <button type="button" class="btn-lien" id="btn-vers-inscription"
+                    data-fr="S'inscrire" data-en="Register">S'inscrire</button>
+          </p>
+        </div>
+
+        <!-- formulaire inscription -->
+        <div class="panneau-form" id="panneau-inscription"
+             role="tabpanel" aria-labelledby="onglet-inscription">
+          <form id="form-inscription" novalidate>
+
+            <div class="grille-noms">
+              <div class="champ">
+                <label for="nom-ins" data-fr="Nom" data-en="Last name">Nom</label>
+                <input type="text" id="nom-ins" name="nom"
+                       autocomplete="family-name"
+                       data-fr="Votre nom" data-en="Your last name"
+                       placeholder="Votre nom" required>
+                <span class="erreur-champ" id="err-nom"></span>
+              </div>
+              <div class="champ">
+                <label for="prenom-ins" data-fr="Prénom" data-en="First name">Prénom</label>
+                <input type="text" id="prenom-ins" name="prenom"
+                       autocomplete="given-name"
+                       data-fr="Votre prénom" data-en="Your first name"
+                       placeholder="Votre prénom" required>
+                <span class="erreur-champ" id="err-prenom"></span>
+              </div>
+            </div>
+
+            <div class="champ">
+              <label for="email-ins" data-fr="Adresse e-mail" data-en="Email address">Adresse e-mail</label>
+              <input type="email" id="email-ins" name="email"
+                     autocomplete="email"
+                     data-fr="votre@email.com" data-en="your@email.com"
+                     placeholder="votre@email.com" required>
+              <span class="erreur-champ" id="err-email-ins"></span>
+            </div>
+
+            <div class="champ">
+              <label for="tel-ins" data-fr="Téléphone" data-en="Phone">Téléphone</label>
+              <input type="tel" id="tel-ins" name="telephone"
+                     autocomplete="tel"
+                     data-fr="0XX XX XX XX" data-en="0XX XX XX XX"
+                     placeholder="0XX XX XX XX">
+              <span class="erreur-champ" id="err-tel"></span>
+            </div>
+
+            <div class="champ">
+              <label for="mdp-ins"
+                     data-fr="Mot de passe (min. 8 caractères)" data-en="Password (min. 8 chars)">
+                Mot de passe (min. 8 caractères)
+              </label>
+              <div class="champ-mdp">
+                <input type="password" id="mdp-ins" name="motDePasse"
+                       autocomplete="new-password"
+                       data-fr="Minimum 8 caractères" data-en="Minimum 8 characters"
+                       placeholder="Minimum 8 caractères" required>
+                <button type="button" class="btn-oeil" id="btn-oeil-ins"
+                        aria-label="Afficher/masquer le mot de passe">👁</button>
+              </div>
+              <span class="erreur-champ" id="err-mdp-ins"></span>
+            </div>
+
+            <div class="champ">
+              <label for="mdp-conf" data-fr="Confirmer le mot de passe" data-en="Confirm password">
+                Confirmer le mot de passe
+              </label>
+              <input type="password" id="mdp-conf" name="confirmation"
+                     autocomplete="new-password"
+                     data-fr="Répéter le mot de passe" data-en="Repeat password"
+                     placeholder="Répéter le mot de passe" required>
+              <span class="erreur-champ" id="err-conf"></span>
+            </div>
+
+            <button type="submit" class="btn-form"
+                    data-fr="Créer mon compte" data-en="Create Account">Créer mon compte</button>
+          </form>
+
+          <p class="lien-bas">
+            <span data-fr="Déjà inscrit ?" data-en="Already registered?">Déjà inscrit ?</span>
+            <button type="button" class="btn-lien" id="btn-vers-connexion"
+                    data-fr="Se connecter" data-en="Sign In">Se connecter</button>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- footer -->
+  <footer>
+    <div class="footer-grille">
+      <div class="footer-col">
+        <h4>DzairTravel</h4>
+        <p data-fr="Guide touristique de l'Algérie"
+           data-en="Algeria travel guide">Guide touristique de l'Algérie</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-fr="Navigation" data-en="Navigation">Navigation</h4>
+        <a href="../index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+        <a href="destinations.html" data-fr="Destinations" data-en="Destinations">Destinations</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-fr="Contact" data-en="Contact">Contact</h4>
+        <p>📧 contact@dzairtravel.dz</p>
+        <p>📍 Tizi Ouzou, Algérie</p>
+      </div>
+    </div>
+    <div class="footer-bas">
+      <p>© 2025/2026 DzairTravel</p>
+    </div>
+  </footer>
+
+  <script src="../javascript/donnees.js"></script>
+  <script src="../javascript/commun.js"></script>
+  <script src="../javascript/auth.js"></script>
+</body>
+</html>

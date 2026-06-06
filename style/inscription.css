@@ -1,0 +1,42 @@
+/* styles spécifiques à la page inscription */
+
+/* titre du formulaire */
+.formulaire-wrapper h1 {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1.4rem;
+  color: var(--texte);
+}
+
+/* conteneur du champ mot de passe avec le bouton œil */
+.champ-mdp {
+  position: relative;
+}
+
+/* bouton pour voir / masquer le mot de passe */
+.btn-oeil {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--texte-doux);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* nom + prénom côte à côte */
+.grille-noms {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 480px) {
+  .grille-noms {
+    grid-template-columns: 1fr;
+  }
+}

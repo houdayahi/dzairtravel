@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DzairTravel — Destinations</title>
+  <link rel="stylesheet" href="../style/style.css">
+  <link rel="stylesheet" href="../style/destinations.css">
+</head>
+
+<body>
+
+  <!-- navbar-->
+  <header>
+    <nav id="navbar" role="navigation" aria-label="Navigation principale">
+      <div class="nav-logo">
+        <a href="../index.html" class="nav-logo-lien">Dzair<span>Travel</span></a>
+      </div>
+
+      <ul class="nav-liens">
+        <li><a href="../index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
+        <li><a href="destinations.html" data-fr="Destinations" data-en="Destinations">Destinations</a></li>
+        <li><a href="connexion.html" data-fr="Mon compte" data-en="My Account">Mon compte</a></li>
+      </ul>
+
+      <div class="nav-controles">
+        <div id="zone-session"></div>
+        <button class="btn-icone" id="btn-langue" title="Changer la langue">EN</button>
+        <button class="btn-icone" id="btn-theme" title="Mode sombre">🌙</button>
+      </div>
+    </nav>
+  </header>
+
+  <button id="btn-sidebar" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+  <div id="sidebar-overlay" aria-hidden="true"></div>
+
+  <nav id="sidebar" role="navigation" aria-label="Menu latéral">
+    <div class="sidebar-header">
+      <span class="sidebar-logo">Dzair<span>Travel</span></span>
+      <button id="btn-fermer-sidebar" aria-label="Fermer">✕</button>
+    </div>
+    <ul class="sidebar-nav">
+      <li><a href="../index.html"><span class="icone-lien">🏠</span><span data-fr="Accueil"
+            data-en="Home">Accueil</span></a></li>
+      <li><a href="destinations.html"><span class="icone-lien">🗺️</span><span data-fr="Destinations"
+            data-en="Destinations">Destinations</span></a></li>
+      <li><a href="connexion.html"><span class="icone-lien">👤</span><span data-fr="Connexion / Inscription"
+            data-en="Sign In / Sign Up">Connexion / Inscription</span></a></li>
+    </ul>
+    <div class="sidebar-footer">
+      <div id="zone-session-sidebar"></div>
+      <div class="sidebar-controles">
+        <button class="btn-icone" id="btn-langue-sb">EN</button>
+        <button class="btn-icone" id="btn-theme-sb">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- contenu -->
+  <main>
+    <div class="conteneur conteneur-page">
+
+      <h1 class="titre-section" data-fr="Toutes les destinations" data-en="All Destinations">
+        Toutes les destinations
+      </h1>
+      <p class="sous-titre"
+        data-fr="Filtrez par catégorie · cliquez sur une carte pour voir les détails et la carte GPS"
+        data-en="Filter by category · click a card to see details and the GPS map">
+        Filtrez par catégorie · cliquez sur une carte pour voir les détails et la carte GPS
+      </p>
+
+      <!-- Barre de recherche -->
+      <div class="barre-recherche" role="search">
+        <input type="search" id="recherche" data-fr="Rechercher une destination..." data-en="Search a destination..."
+          placeholder="Rechercher une destination..." aria-label="Rechercher une destination">
+        <button id="btn-recherche" aria-label="Lancer la recherche">🔍</button>
+      </div>
+
+      <!-- Filtres catégories -->
+      <nav class="filtres" id="filtres" aria-label="Filtres par catégorie"></nav>
+
+      <!-- Compteur de résultats -->
+      <p id="compteur"></p>
+
+      <!-- Grille des destinations -->
+      <div class="grille-dest" id="grille-destinations" role="list"></div>
+
+      <!-- Message si vide -->
+      <p class="vide-message" id="msg-vide" data-fr="Aucune destination trouvée pour cette recherche."
+        data-en="No destination found for this search.">
+        Aucune destination trouvée pour cette recherche.
+      </p>
+
+    </div>
+  </main>
+
+  <!--modal + carte -->
+  <div class="modale" id="modale" role="dialog" aria-modal="true" aria-labelledby="m-nom">
+    <div class="modale-contenu">
+      <button class="fermer" id="fermer-modale" aria-label="Fermer">✕</button>
+
+      <img id="m-image" src="" alt="">
+      <span class="carte-etiquette" id="m-etiq"></span>
+      <h2 id="m-nom"></h2>
+      <p id="m-region"></p>
+      <p id="m-note"></p>
+      <p id="m-desc"></p>
+
+      <!-- carte gps -->
+      <div class="modale-carte">
+        <iframe id="m-carte" title="Carte GPS" loading="lazy" src="" width="100%" height="200"></iframe>
+      </div>
+      <p class="lien-osm-wrapper">
+        <a id="m-osm-lien" href="#" target="_blank" rel="noopener" data-fr="Ouvrir dans OpenStreetMap"
+          data-en="Open in OpenStreetMap">
+          Ouvrir dans OpenStreetMap ↗
+        </a>
+      </p>
+
+      <!-- section commentaires -->
+      <div class="commentaires-section">
+        <h3 class="commentaires-titre" data-fr="Commentaires" data-en="Comments">Commentaires</h3>
+        <div id="liste-commentaires"></div>
+        <div id="zone-ajout-commentaire"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- footer-->
+  <footer>
+    <div class="footer-grille">
+      <div class="footer-col">
+        <h4>DzairTravel</h4>
+        <p data-fr="Guide touristique de l'Algérie — 27 destinations" data-en="Algeria travel guide — 27 destinations">
+          Guide touristique de l'Algérie — 27 destinations
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4 data-fr="Navigation" data-en="Navigation">Navigation</h4>
+        <a href="../index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+        <a href="connexion.html" data-fr="Mon compte" data-en="My Account">Mon compte</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-fr="Contact" data-en="Contact">Contact</h4>
+        <p>📧 contact@dzairtravel.dz</p>
+        <p>📍 Tizi Ouzou, Algérie</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-fr="Avis" data-en="Reviews">Avis</h4>
+        <ul class="footer-avis">
+          <li>
+            <div class="auteur-avis">Cristiano Ronarldo</div>
+            <div class="etoiles-avis">★★★★★</div>
+            <span data-fr="Magnifique, j'ai découvert des endroits incroyables !"
+              data-en="Amazing, I discovered incredible places!">
+              Magnifique, j'ai découvert des endroits incroyables !
+            </span>
+          </li>
+          <li>
+            <div class="auteur-avis">Islam Slimani</div>
+            <div class="etoiles-avis">★★★★★</div>
+            <span data-fr="Très bien organisé, bravo aux créateurs !" data-en="Very well organised, well done!">
+              Très bien organisé, bravo aux créateurs !
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bas">
+      <p>© 2025/2026 DzairTravel — Université Mouloud Mammeri Tizi-Ouzou </p>
+    </div>
+  </footer>
+
+  <script src="../javascript/donnees.js"></script>
+  <script src="../javascript/commun.js"></script>
+  <script src="../javascript/destinations.js"></script>
+</body>
+
+</html>
